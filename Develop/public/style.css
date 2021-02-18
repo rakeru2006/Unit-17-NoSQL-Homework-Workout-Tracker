@@ -68,7 +68,7 @@ form {
   margin-top: 25px;
 }
 
-.transactions {
+.workouts {
   text-align: left;
   max-height: 300px;
   overflow: auto;
@@ -76,6 +76,6 @@ form {
   margin: 0 auto;
 }
 
-.transaction-buttons {
+.workout-buttons {
   margin-top: 25px;
 }

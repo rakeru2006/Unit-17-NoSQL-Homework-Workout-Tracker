@@ -1,6 +1,6 @@
 let db;
-// create a new db request for a "budget" database.
-const request = indexedDB.open("budget", 1);
+// create a new db request for a "excercise" database.
+const request = indexedDB.open("excercise", 1);
 
 request.onupgradeneeded = function(event) {
    // create object store called "pending" and set autoIncrement to true
@@ -22,27 +22,27 @@ request.onerror = function(event) {
 };
 
 function saveRecord(record) {
-  // create a transaction on the pending db with readwrite access
-  const transaction = db.transaction(["pending"], "readwrite");
+  // create a workout on the pending db with readwrite access
+  const workout = db.workout(["pending"], "readwrite");
 
   // access your pending object store
-  const store = transaction.objectStore("pending");
+  const store = workout.objectStore("pending");
 
   // add record to your store with add method.
   store.add(record);
 }
 
 function checkDatabase() {
-  // open a transaction on your pending db
-  const transaction = db.transaction(["pending"], "readwrite");
+  // open a workout on your pending db
+  const workout = db.workout(["pending"], "readwrite");
   // access your pending object store
-  const store = transaction.objectStore("pending");
+  const store = workout.objectStore("pending");
   // get all records from store and set to a variable
   const getAll = store.getAll();
 
   getAll.onsuccess = function() {
     if (getAll.result.length > 0) {
-      fetch("/api/transaction/bulk", {
+      fetch("/api/workout/bulk", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
@@ -52,11 +52,11 @@ function checkDatabase() {
       })
       .then(response => response.json())
       .then(() => {
-        // if successful, open a transaction on your pending db
-        const transaction = db.transaction(["pending"], "readwrite");
+        // if successful, open a workout on your pending db
+        const workout = db.workout(["pending"], "readwrite");
 
         // access your pending object store
-        const store = transaction.objectStore("pending");
+        const store = workout.objectStore("pending");
 
         // clear all items in your store
         store.clear();

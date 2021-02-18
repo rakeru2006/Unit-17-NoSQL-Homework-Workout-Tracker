@@ -1,19 +1,19 @@
-let transactions = [];
+let workouts = [];
 let myChart;
 
-fetch('/api/transaction')
+fetch('/api/workout')
   .then((response) => response.json())
   .then((data) => {
     // save db data on global variable
-    transactions = data;
+    workouts = data;
     populateTotal();
     populateTable();
     populateChart();
   });
 
 function populateTotal() {
-  // reduce transaction amounts to a single total value
-  const total = transactions
+  // reduce workout amounts to a single total value
+  const total = workouts
     .reduce((total, t) => {
       return total + parseFloat(t.value);
     }, 0)
@@ -27,12 +27,12 @@ function populateTable() {
   const tbody = document.querySelector('#tbody');
   tbody.innerHTML = '';
 
-  transactions.forEach((transaction) => {
+  workouts.forEach((workout) => {
     // create and populate a table row
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${transaction.name}</td>
-      <td>${transaction.value}</td>
+      <td>${workout.name}</td>
+      <td>${workout.value}</td>
     `;
 
     tbody.appendChild(tr);
@@ -41,7 +41,7 @@ function populateTable() {
 
 function populateChart() {
   // copy array and reverse it
-  const reversed = transactions.slice().reverse();
+  const reversed = workouts.slice().reverse();
   let sum = 0;
 
   // create date labels for chart
@@ -79,9 +79,9 @@ function populateChart() {
   });
 }
 
-function sendTransaction(isAdding) {
+function sendworkout(isAdding) {
   const nameEl = document.querySelector('#t-name');
-  const amountEl = document.querySelector('#t-amount');
+  const amountEl = document.querySelector('#t-Quantity');
   const errorEl = document.querySelector('form .error');
 
   // validate form
@@ -93,19 +93,19 @@ function sendTransaction(isAdding) {
   }
 
   // create record
-  const transaction = {
+  const workout = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString(),
   };
 
-  // if subtracting funds, convert amount to negative number
+  // if subtracting excerciseRoutine, convert Quantity to negative number
   if (!isAdding) {
-    transaction.value *= -1;
+    workout.value *= -1;
   }
 
   // add to beginning of current array of data
-  transactions.unshift(transaction);
+  workouts.unshift(workout);
 
   // re-run logic to populate ui with new record
   populateChart();
@@ -113,9 +113,9 @@ function sendTransaction(isAdding) {
   populateTotal();
 
   // also send to server
-  fetch('/api/transaction', {
+  fetch('/api/workout', {
     method: 'POST',
-    body: JSON.stringify(transaction),
+    body: JSON.stringify(workout),
     headers: {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ function sendTransaction(isAdding) {
     })
     .catch((err) => {
       // fetch failed, so save in indexed db
-      saveRecord(transaction);
+      saveRecord(workout);
 
       // clear form
       nameEl.value = '';
@@ -143,10 +143,10 @@ function sendTransaction(isAdding) {
 
 document.querySelector('#add-btn').addEventListener('click', function (event) {
   event.preventDefault();
-  sendTransaction(true);
+  sendworkout(true);
 });
 
 document.querySelector('#sub-btn').addEventListener('click', function (event) {
   event.preventDefault();
-  sendTransaction(false);
+  sendworkout(false);
 });
