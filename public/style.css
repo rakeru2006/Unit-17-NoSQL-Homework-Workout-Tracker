@@ -33,10 +33,6 @@ a:visited {
   color: inherit;
 }
 
-nav a:hover{
-  opacity: 0.7;
-}
-
 header {
   height: 150px;
   padding-top: 80px;
