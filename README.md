@@ -1,61 +1,136 @@
-# Unit 17 NoSQL Homework: Workout Tracker
+# :sparkles:  Unit-17-NoSQL-Homework-Workout-Tracker   :sparkles:
+================
+## Author :bowtie:
+***
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
 
-## User Story
+This project is in this github repository [Github](https://github.com/rakeru2006/Unit-17-NoSQL-Homework-Workout-Tracker)
+and can visualize in [Heroku](https://secret-plains-15026.herokuapp.com/)
+
+
+## Table of Contents :pushpin:
+*** 
+  - [Description](#Description)
+  - [Usage](#Usage)
+  - [Installation](#Installation)
+  - [Contributing](#Contributing)
+  - [Tests](#Tests)
+  - [Questions FAQs](#Questions-faqs)
+  - [License](#License)
+
+
+## Description  
+:bulb:
+  ***
+  # User Story
 
 * As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
 
-## Business Context
+# Business Context
 
 A consumer will reach their fitness goals more quickly when they track their workout progress.
 
-## Acceptance Criteria
-
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
-
-The user should be able to:
-
-  * Add exercises to the most recent workout plan.
-
-  * Add new exercises to a new workout plan.
-
-  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
-
-  * View the total duration of each workout from the past seven workouts on the `stats` page.
-
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
-
+    
+    
+## Usage 
+:speech_balloon:  :hammer: :eyeglasses: 
+  ***
+We are going to create this code to show, help and Learn  
 To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
 
   * [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
 
   * [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
 
-## Commit Early and Often
+## Installation 
+:feet:
+***
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
+Small description step by step that tells how to run and develop the aplication 
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+```
+ npm install
+ node server.js
+``` 
+## Running Locally
 
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+Your app should now be running on [localhost:3000](http://localhost:8000/).
 
-Follow these guidelines for committing:
+## Deploying to Heroku
 
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+```
+heroku create
+git push heroku main
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
+```
+Be shure you congure your Config Vars
 
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
+```
+MONGODB_URI
 
-* Test your application before you commit to ensure functionality at every step in the development process.
+mongodb+srv://YOURNAMEUSER:YOURPASSWORD.3hak9.mongodb.net/NAMEDATABASE?retryWrites=true&w=majority
 
-We want you to have well over 200 commits by graduation, so commit early and often!
+```
 
-## Submission on BCS
 
-You are required to submit the following:
+## Tests 
+:eyes: 
+***
 
-* The URL to the deployed application
+Demo aplication
 
-* The URL to the GitHub repository
+Demo running
+
+![demo](https://github.com/rakeru2006/express_heroku/blob/main/note.png)
+
+
+
+## Contributing  
+:man_with_gua_pi_mao:
+***
+You can participate with this project with one of the followin examples: 
+ Report a bug,Fix errors,Suggest a new feature,add features,Help improve the project,Other
+
+
+## Questions FAQs 
+:question:
+***
+
+For questions contact 
+
+## License :cop: :guardsman: 
+:key:
+  ***
+  This proyect going to used this license:
+  ~~~
+  ISC
+  ~~~
+
+  You can read more about this in
+  A list of the most common permissive licenses are MIT, Apache 2.0, ISC, and BSD.technologies used in projects
+  
+  | License Identifier| FSF Free? | OSI Approved? |
+  |:--------------|:-------------:|--------------:|
+  | MIT| Y | Y|
+  | Apache_2.0 | Y | Y|
+  | ISC | Y | Y |
+  | BSD |  | Y |
+  | GNU GPLv3 | Y | Y |
+ 
+  
+  * [MIT](https://spdx.org/licenses/MIT.html)
+  * [Apache_2.0 ](https://spdx.org/licenses/Apache-2.0.html)
+  * [ISC](https://spdx.org/licenses/ISC.html)
+  * [BSD](https://spdx.org/licenses/BSD-1-Clause.html)
+  * [GNU GPLv3] (https://spdx.org/licenses/GPL-3.0-only.html
+  
+  > Maybe you want to search more of this part.
+  > This is how you do it.SPDX License List
+  > The SPDX License List itself is a list of commonly found licenses and
+  > exceptions used in free and open or collaborative software, data, hardware,
+  > or documentation. The SPDX License List includes a standardized short identifier,
+  > the full name, the license text, and a canonical
+  > permanent URL for each license and exception.
+  > [SPDX License List](https://spdx.org/licenses/)
+
